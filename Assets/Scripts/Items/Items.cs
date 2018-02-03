@@ -108,6 +108,7 @@ public class Items : MonoBehaviour
         animalfood = new Dictionary<string, int>();
         animalfood.Add("Gras", 10);
         animalfood.Add("Egg", 10);
+        animalfood.Add("Apple", 10);
 
         // Werte für Heilung
         healwerte = new Dictionary<string, int>();

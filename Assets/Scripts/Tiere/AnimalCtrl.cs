@@ -16,9 +16,9 @@ public class AnimalCtrl : MonoBehaviour
     public GameObject Charakter;
     public GameObject Attacker;
     public GameObject Camera;
-    private bool moverandom = false;
+    public bool moverandom = false;
     public bool movetoplayer = false;
-    private bool searchitem = false;
+    public bool searchitem = false;
     private bool hiding = false;
     private bool sleeping = false;
     private bool death = false;
@@ -30,7 +30,7 @@ public class AnimalCtrl : MonoBehaviour
     private float waittimer;
     private float currentHealth = 1;
     private float maxHunger = 100;
-    private float currentHunger;
+    public float currentHunger;
     private float placeholderX;
     private float placeholderY;
     private Collider2D[] arrayofItems;
@@ -171,6 +171,7 @@ public class AnimalCtrl : MonoBehaviour
         SearchItem();
         Hide();
         Death();
+
 
         //waittimer
 
@@ -340,7 +341,7 @@ public class AnimalCtrl : MonoBehaviour
                     Item = ItemTemp.gameObject;
                 }
             }
-            // Wenn Item gefunden dann dieses ansteuern, ansosnten Random laufen
+            // Wenn Item gefunden dann dieses ansteuern, ansonsten Random laufen
             if (Item != null)
             {
                 Targetposition = Item.transform.position;
@@ -474,8 +475,11 @@ public class AnimalCtrl : MonoBehaviour
         {
             Attacker = Charakter;
             Items myWeapon = Weapon.GetComponent<Items>();
-            int value = myWeapon.Weapon[Weapon.name];
-            TakeDamage(value);
+            int value = 0;
+            if(myWeapon.Weapon.TryGetValue(Weapon.name, out value))
+            { 
+                TakeDamage(value);
+            }
         }
         
     }

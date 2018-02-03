@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114518055277301642}
   - component: {fileID: 60052848286218240}
   - component: {fileID: 50648548998867552}
-  - component: {fileID: 82375126950554562}
   m_Layer: 0
   m_Name: Arrow_stone
   m_TagString: weapon
@@ -38,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1857611549260258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1206125, y: 0.75853246, z: 0}
+  m_LocalPosition: {x: -3.8871226, y: -0.15139416, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,86 +101,6 @@ PolygonCollider2D:
       - {x: 0.07024896, y: 0.00074601173}
       - {x: 0.07038623, y: 0.0103827715}
       - {x: 0.059800982, y: 0.019701958}
---- !u!82 &82375126950554562
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1857611549260258}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ce98e91b55fbcc1478c839fcdbbd16be, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.05
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &114518055277301642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,6 +117,7 @@ MonoBehaviour:
   isgrounded: 0
   Charakter: {fileID: 0}
   PlayerCursor: {fileID: 0}
+  SoundManager: {fileID: 0}
   Icon: {fileID: 21300000, guid: 9b4a83280e98c1442a9b565d451029a5, type: 3}
   currentDurability: 100
   maxDurability: 100
@@ -215,6 +135,7 @@ MonoBehaviour:
   - Tinderdrill
   - Wetzstein
   Childlist: []
+  spritedrop: {fileID: 0}
 --- !u!212 &212532242049566670
 SpriteRenderer:
   m_ObjectHideFlags: 1

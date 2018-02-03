@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212011339277950476}
   - component: {fileID: 114331155402401498}
   - component: {fileID: 61082018793672708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,8 +83,7 @@ MonoBehaviour:
   isgrounded: 1
   Charakter: {fileID: 0}
   PlayerCursor: {fileID: 0}
-  AudioSource: {fileID: 0}
-  brokentool: {fileID: 0}
+  SoundManager: {fileID: 0}
   Icon: {fileID: 21300000, guid: 40f0e7390880b1c4ab84cc88b69615f8, type: 3}
   currentDurability: 100
   maxDurability: 100
@@ -93,6 +92,7 @@ MonoBehaviour:
   Drinkinglist: []
   Waterfilllist: []
   Childlist: []
+  spritedrop: {fileID: 0}
 --- !u!212 &212011339277950476
 SpriteRenderer:
   m_ObjectHideFlags: 1

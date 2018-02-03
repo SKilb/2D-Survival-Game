@@ -135,7 +135,7 @@ public class Bogen : MonoBehaviour {
                 Pfeil.transform.position = Vector2.MoveTowards(Pfeil.transform.position, Targetposition, step);
             }
             if (Pfeil.transform.position == Targetposition)
-            {
+            { 
                 myCtrl.attack = false;
                 bowing = false;
                 Pfeil = null;

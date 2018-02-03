@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212421862465786358}
   - component: {fileID: 58129122121408120}
   - component: {fileID: 114337738562345138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Apple
   m_TagString: roastable
   m_Icon: {fileID: 0}
@@ -73,6 +73,7 @@ MonoBehaviour:
   isgrounded: 0
   Charakter: {fileID: 0}
   PlayerCursor: {fileID: 0}
+  SoundManager: {fileID: 0}
   Icon: {fileID: 21300000, guid: e7dd2c5013a02b24da4585494472b618, type: 3}
   currentDurability: 100
   maxDurability: 100
@@ -81,6 +82,7 @@ MonoBehaviour:
   Drinkinglist: []
   Waterfilllist: []
   Childlist: []
+  spritedrop: {fileID: 0}
 --- !u!212 &212421862465786358
 SpriteRenderer:
   m_ObjectHideFlags: 1

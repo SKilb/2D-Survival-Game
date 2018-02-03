@@ -104,18 +104,24 @@ MonoBehaviour:
   Charakter: {fileID: 0}
   Attacker: {fileID: 0}
   Camera: {fileID: 0}
+  moverandom: 0
   movetoplayer: 0
+  searchitem: 0
   attacking: 0
   attackrange: 0
+  currentHunger: 0
   layermask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   distanceH: 0
   distance: 0
   disappeartimer: 10
   fellcounter: 0
   fleischcounter: 0
   federcounter: 0
+  linencounter: 0
+  eggcounter: 0
+  woolcounter: 0
 --- !u!212 &212132123591917096
 SpriteRenderer:
   m_ObjectHideFlags: 1

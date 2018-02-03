@@ -7,7 +7,7 @@ public class Build : MonoBehaviour {
     private GameObject PlayerCursor;
     private GameObject Mouse;
     public Sprite BuildCursor;
-    private bool buildbool;
+    public bool buildbool;
     
 
 	// Use this for initialization
@@ -44,7 +44,7 @@ public class Build : MonoBehaviour {
             {
                 Transform PlayerCursorChild = PlayerCursor.gameObject.transform.GetChild(0);
                 PlayerCursorChild.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                PlayerCursorChild.transform.SetParent(Mouse.transform);
+                PlayerCursorChild.transform.SetParent(Mouse.transform);           
             }
 
         }
@@ -60,6 +60,17 @@ public class Build : MonoBehaviour {
             Mousechild.transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
+        // Item auf Raster setzen
+        if(buildbool == true && childcounterP >0)
+        {
+            Transform PlayerCursorChild = PlayerCursor.gameObject.transform.GetChild(0);
+            float posx = Mouse.transform.position.x;
+            float posy = Mouse.transform.position.y;
+            float rposx = posx - (posx % 0.16f);
+            float rposy = posy - (posy % 0.16f);
+            PlayerCursorChild.transform.position = new Vector2(rposx, rposy);
+        }
+
         // Cursor = Mouse Position setzen ---------------------------------------------------------
         if (buildbool == true)
         {
@@ -69,7 +80,11 @@ public class Build : MonoBehaviour {
             float y = mousePos.y;
             mousePos = new Vector3(x, y, +5);
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            PlayerCursor.transform.position = mousePos;
+            float posx = mousePos.x;
+            float posy = mousePos.y; 
+            float rposx = posx-(posx % 0.16f);
+            float rposy = posy-(posy % 0.16f);
+            PlayerCursor.transform.position = new Vector2(rposx, rposy);
         }
 
         // Platzieren
@@ -81,8 +96,8 @@ public class Build : MonoBehaviour {
             PlayerCursorChild.GetComponent<Collider2D>().enabled = true;
             ActivateSpriteChilds(PlayerCursorChild.gameObject);
             PlayerCursorChild.transform.SetParent(null);
+           // PlayerCursorChild = null;
         }
-
     }
 
     public void ActivateSpriteChilds(GameObject Parent)

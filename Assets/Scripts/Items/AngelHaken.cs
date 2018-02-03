@@ -12,9 +12,7 @@ public class AngelHaken : MonoBehaviour {
 	void Start ()
     {
         SoundManager = GameObject.Find("SoundManager");
-        Angel = transform.parent.gameObject.transform.parent.gameObject.
-                transform.parent.gameObject.transform.parent.gameObject.
-                transform.parent.gameObject;
+        Angel = transform.root.gameObject;
         myFishingRod = Angel.GetComponent<FishingRod>();
     }
 	
