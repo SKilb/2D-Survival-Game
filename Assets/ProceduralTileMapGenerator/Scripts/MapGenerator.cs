@@ -163,14 +163,27 @@ public class MapGenerator : MonoBehaviour
     //ToDo: Implementieren, dass items nicht auf der gleichen stelle spawnen
     private void SpawnItems(Dictionary<VoronoiPoint, List<Vector2>> regions)
     {
+        Dictionary<ItemSpawn, float> extraSpawnBuffer = new Dictionary<ItemSpawn, float>();
         foreach(var region in regions)
         {
             TileType tileType = TileTypes[region.Key.TileIndex-1];
             foreach (var item in tileType.UniqueItemsForTileType) {
                 float spawnCountInRegion = (float)(region.Value.Count / (float)SquareSize) * item.ItemSpawnCountPerSquareSize;
-                spawnCountInRegion = Mathf.RoundToInt(spawnCountInRegion);
+                int spawnCountInRegionRounded = Mathf.RoundToInt(spawnCountInRegion);
+                if (!extraSpawnBuffer.ContainsKey(item))
+                    extraSpawnBuffer.Add(item, 0);
 
-                for (int i = 0; i < spawnCountInRegion; i++)
+                extraSpawnBuffer[item] += spawnCountInRegion - spawnCountInRegionRounded;
+
+                if(spawnCountInRegion % 1 < 0.5f && extraSpawnBuffer[item] >= 1 - (spawnCountInRegion % 1))
+                {
+                    spawnCountInRegionRounded++;
+                    extraSpawnBuffer[item] -= 1 - (spawnCountInRegion % 1);
+                }
+
+                if (spawnCountInRegionRounded > region.Value.Count)
+                    spawnCountInRegionRounded -= spawnCountInRegionRounded - (int)spawnCountInRegion;
+                for (int i = 0; i < spawnCountInRegionRounded; i++)
                 {
                     bool spawned = false;
                     Vector2 randomSpawnLocation = new Vector2();
