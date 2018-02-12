@@ -67,6 +67,7 @@ public class Rezepte : MonoBehaviour
         Otherlist.Add(Bottle);
         Otherlist.Add(Healpotion);
         Otherlist.Add(Torch);
+        Otherlist.Add(Spawnpole);
     }
 
     void Update()
@@ -234,6 +235,8 @@ public Rezepte(string name,int LvL, int rescount,string buttonnumber, string Res
                                     "Healing : 30\nResources needed :\n1xBottle 2xHealplant");
     public static Rezepte Torch = new Rezepte("Torch", 0, 2, "7", "Twig", 1, "Resin", 1, "Spends Light in the Night\n" +
                                 "Resources needed :\n1xTwig 1xResin");
+    public static Rezepte Spawnpole = new Rezepte("Spawnpole", 0, 1, "8", "Twig", 3, "Use to set your Respawnpoint\n" +
+                            "Resources needed :\n3xTwig");
 
 
 

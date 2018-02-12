@@ -323,7 +323,5 @@ public class Items : MonoBehaviour
             TakeChildstoList(child);
         }
     }
-
-
 }
 

@@ -153,7 +153,6 @@ public class FishingRod : MonoBehaviour
     public void GetFish()
     {
         string name = Fishsorts[fishIndex];
-        print(name);
         GameObject Crafted = Instantiate(Prefabliste.Instance().GetGameObject(name), new Vector3(0, 0, 0), Quaternion.identity);
         Crafted.name = name;
         Crafted.transform.SetParent(Haken.transform);

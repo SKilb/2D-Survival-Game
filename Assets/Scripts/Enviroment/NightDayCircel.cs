@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class NightDayCircel : MonoBehaviour {
 
+    public Spawnmanager mySpawnmanager;
+    public GameObject Spawnmanager;
     public GameObject Light;
     public Text Day;
     public Text Hour;
@@ -20,6 +22,7 @@ public class NightDayCircel : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        mySpawnmanager = Spawnmanager.GetComponent<Spawnmanager>();
         factor = 0.013888888888f;
         hour = 8;
         lt = GetComponent<Light>();
@@ -48,6 +51,7 @@ public class NightDayCircel : MonoBehaviour {
         {
             day++;
             hour = 0;
+            mySpawnmanager.SpawnTrigger();
         }
 
         // Zeitraffer-------------------------------------------------------------------
