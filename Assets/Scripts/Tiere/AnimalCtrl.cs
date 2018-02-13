@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AnimalCtrl : MonoBehaviour
 {
-
+    public MapGenerator myMapgenerator;
+    public GameObject Mapgenerator;
     public NightDayCircel myNightDayCircel;
     public GameObject NightDay;
     public Ctrl myCtrl;
@@ -57,6 +58,8 @@ public class AnimalCtrl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Mapgenerator = GameObject.Find("MapGenerator");
+        myMapgenerator = Mapgenerator.GetComponent<MapGenerator>();
         Camera = GameObject.Find("Main Camera");
         NightDay = Camera.transform.GetChild(0).gameObject;
         myNightDayCircel = NightDay.GetComponent<NightDayCircel>();
@@ -286,9 +289,10 @@ public class AnimalCtrl : MonoBehaviour
         if (moverandom == true && !sleeping)
         {
             speed = 0.5f;
-            Targetposition = new Vector3(placeholderX, placeholderY, 0);
-            float step = speed * Time.deltaTime;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, Targetposition, step);
+
+                Targetposition = new Vector3(placeholderX,placeholderY, 0);
+                float step = speed * Time.deltaTime;
+                this.transform.position = Vector3.MoveTowards(this.transform.position, Targetposition, step);
         }
     }
 
@@ -351,7 +355,7 @@ public class AnimalCtrl : MonoBehaviour
             }
             else
             {
-                Targetposition = new Vector3(placeholderX, placeholderY, 0);
+                Targetposition = new Vector3(placeholderX,placeholderY, 0);
                 float step = speed * Time.deltaTime;
                 this.transform.position = Vector3.MoveTowards(this.transform.position, Targetposition, step);
             }
@@ -428,10 +432,10 @@ public class AnimalCtrl : MonoBehaviour
 
     // Zielposition auswürfeln ---------------------------------------------
     void Direction()
-    {
+    {      
         waittimer = Random.Range(0, 10);
-        placeholderX = Random.Range(-3f, 3f);
-        placeholderY = Random.Range(-3f, 3f);
+        placeholderX = Random.Range(-myMapgenerator.mapWidth / 10, myMapgenerator.mapWidth  /10);
+        placeholderY = Random.Range(-myMapgenerator.mapHeight / 10, myMapgenerator.mapHeight /10);
     }
     //----------------------------------------------------------------------
 

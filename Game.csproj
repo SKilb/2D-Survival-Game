@@ -304,6 +304,7 @@
     <Compile Include="Assets\Scripts\Aufheben\Coin.cs" />
     <Compile Include="Assets\Scripts\Aufheben\Coins.cs" />
     <Compile Include="Assets\Scripts\Enviroment\NightDayCircel.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\Weather.cs" />
     <Compile Include="Assets\Scripts\Hilfen.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISerializable.cs" />
     <Compile Include="Assets\Scripts\Items\AngelHaken.cs" />
@@ -326,6 +327,7 @@
     <Compile Include="Assets\Scripts\Objecte\Erzadern.cs" />
     <Compile Include="Assets\Scripts\Objecte\Fishable.cs" />
     <Compile Include="Assets\Scripts\Objecte\Sapling.cs" />
+    <Compile Include="Assets\Scripts\Objecte\Spawnmanager.cs" />
     <Compile Include="Assets\Scripts\Objecte\Treefall.cs" />
     <Compile Include="Assets\Scripts\Objecte\Vein.cs" />
     <Compile Include="Assets\Scripts\Objecte\Waterfill.cs" />

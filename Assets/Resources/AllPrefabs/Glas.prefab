@@ -83,6 +83,7 @@ MonoBehaviour:
   isgrounded: 0
   Charakter: {fileID: 0}
   PlayerCursor: {fileID: 0}
+  SoundManager: {fileID: 0}
   Icon: {fileID: 21300000, guid: e7c16e1d22afcec47b2f92087b10c467, type: 3}
   currentDurability: 100
   maxDurability: 100
@@ -91,6 +92,7 @@ MonoBehaviour:
   Drinkinglist: []
   Waterfilllist: []
   Childlist: []
+  spritedrop: {fileID: 0}
 --- !u!212 &212270360821931568
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -124,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e7c16e1d22afcec47b2f92087b10c467, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
