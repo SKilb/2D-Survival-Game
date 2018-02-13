@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< .merge_file_a12020
 using System.Linq;
-=======
->>>>>>> .merge_file_a12056
 
 /**
  * FileName: MapGenerator.cs
@@ -22,21 +19,12 @@ public class MapGenerator : MonoBehaviour
     public int mapHeight = 100;   //groese der Map Y
     public int VoronoiPointCount = 100;
     public float spriteGroesse = 1;  //Unity-Groesse des Sprites
-<<<<<<< .merge_file_a12020
     public int SquareSize = 50; //Die Anzahl an Tiles die ein Item spawn Square ergeben
-=======
->>>>>>> .merge_file_a12056
 
     public TileType[] TileTypes; //enthält alle möglichen Map-Teile
     public Sprite BorderSprite;
     //public int BorderSize = 5;
-<<<<<<< .merge_file_a12020
     public ItemSpawn[] ItemSpawns;
-=======
-    public float ItemSpawnChance = 0.5f;
-    public ItemSpawn[] ItemSpawns;
-    private Lottery<GameObject> itemSpawnLottery;
->>>>>>> .merge_file_a12056
 
     public GameObject tile; //das Prefab mit einem SpriteRenderer drauf
     public GameObject Tilemap;
@@ -53,16 +41,12 @@ public class MapGenerator : MonoBehaviour
 
     private Sprite[] sprites;
 
-<<<<<<< .merge_file_a12020
     private byte[,] availableSpawnPoints;
 
-=======
->>>>>>> .merge_file_a12056
     void Start()
     {
         if (mapgeneratoractive)
         {
-<<<<<<< .merge_file_a12020
             if (ItemSpawns.Sum(i => i.ItemSpawnCountPerSquareSize) > SquareSize)
                 throw new System.Exception("Die Globale ItemSpawnCountPerSquareSize variable darf nicht größer wie der SquareSize sein");
             foreach(var tileType in TileTypes)
@@ -72,8 +56,6 @@ public class MapGenerator : MonoBehaviour
             float totalitemSpawns = ItemSpawns.Sum(i => i.ItemSpawnCountPerSquareSize) + TileTypes.Sum(t => t.UniqueItemsForTileType.Sum(i => i.ItemSpawnCountPerSquareSize));
             if(totalitemSpawns > mapWidth*mapHeight)
                 throw new System.Exception("Die gesamte Item spawn Anzahl ist zu hoch");
-=======
->>>>>>> .merge_file_a12056
 
             cameraTransform = Camera.main.transform;
 
@@ -113,7 +95,6 @@ public class MapGenerator : MonoBehaviour
             }
             sprites[0] = BorderSprite;
 
-<<<<<<< .merge_file_a12020
             availableSpawnPoints = new byte[mapWidth,mapHeight];
 
             VoronoiMap voronoiMap = new VoronoiMap(TileTypes);
@@ -124,15 +105,6 @@ public class MapGenerator : MonoBehaviour
             //GenerateBorder();
             
             SpawnItems(regions);
-=======
-            VoronoiMap voronoiMap = new VoronoiMap(TileTypes);
-            map = voronoiMap.GenerateMap(mapWidth, mapHeight, VoronoiPointCount);
-
-            //GenerateBorder();
-
-            GenerateItemSpawnLotteries();
-            SpawnItems();
->>>>>>> .merge_file_a12056
             refreshScreen(); //SpriteRenderer erneuern
 
             // Wassertile Colider hinzufügen, nicht passierbar machen und fischbar machen
@@ -187,7 +159,6 @@ public class MapGenerator : MonoBehaviour
     //    map = mapWithBorder;
     //}
 
-<<<<<<< .merge_file_a12020
     
     //ToDo: Implementieren, dass items nicht auf der gleichen stelle spawnen
     private void SpawnItems(Dictionary<VoronoiPoint, List<Vector2>> regions)
@@ -243,56 +214,13 @@ public class MapGenerator : MonoBehaviour
                     if (availableSpawnPoints[(int)randomSpawnLocation.x, (int)randomSpawnLocation.y] != 1) spawned = true;
                 }
                 SpawnItemAtLocation((int)randomSpawnLocation.x, (int)randomSpawnLocation.y, item.ItemPrefab);
-=======
-    private void GenerateItemSpawnLotteries()
-    {
-        itemSpawnLottery = new Lottery<GameObject>();
-        foreach (ItemSpawn item in ItemSpawns)
-        {
-            itemSpawnLottery.Add(item.ItemPrefab, item.Weight);
-        }
-
-        foreach (TileType type in TileTypes)
-        {
-            foreach (ItemSpawn item in type.UniqueItemForTileType)
-            {
-                type.ItemSpawnLottery.Add(item.ItemPrefab, item.Weight);
-            }
-        }
-    }
-
-    private void SpawnItems()
-    {
-        for (int x = 0; x < mapWidth; x++)
-        {
-            for (int y = 0; y < mapHeight; y++)
-            {
-                TileType type = TileTypes[map[x, y] - 1];
-
-                bool spawnItem = Random.Range(0, 100) <= type.ItemSpawnChance && type.UniqueItemForTileType.Length != 0;
-                if (spawnItem)
-                {
-                    SpawnItemAtLocation(x, y, type.ItemSpawnLottery.Draw());
-                }
-                else
-                {
-                    bool generalSpawnItem = Random.Range(0, 100) <= ItemSpawnChance && ItemSpawns.Length != 0;
-                    if (generalSpawnItem)
-                    {
-                        SpawnItemAtLocation(x, y, itemSpawnLottery.Draw());
-                    }
-                }
->>>>>>> .merge_file_a12056
             }
         }
     }
 
     private void SpawnItemAtLocation(int x, int y, GameObject item)
     {
-<<<<<<< .merge_file_a12020
         availableSpawnPoints[x, y] = 1;
-=======
->>>>>>> .merge_file_a12056
         string name = item.name;
         GameObject Item = Instantiate(item, new Vector3(x * spriteGroesse - mapWidth / 2 * spriteGroesse, y * spriteGroesse - mapHeight / 2 * spriteGroesse), Quaternion.identity);
         Item.name = name;
@@ -357,13 +285,7 @@ public class TileType
 {
     public Sprite TypeSprite;
     public float Weight = 1;
-<<<<<<< .merge_file_a12020
     public ItemSpawn[] UniqueItemsForTileType;
-=======
-    public float ItemSpawnChance = 0.5f;
-    public ItemSpawn[] UniqueItemForTileType;
-    public Lottery<GameObject> ItemSpawnLottery = new Lottery<GameObject>();
->>>>>>> .merge_file_a12056
 }
 
 [System.Serializable]
@@ -371,9 +293,5 @@ public class ItemSpawn
 {
     public GameObject ItemPrefab;
 
-<<<<<<< .merge_file_a12020
     public float ItemSpawnCountPerSquareSize = 1;
-=======
-    public float Weight = 1;
->>>>>>> .merge_file_a12056
 }
